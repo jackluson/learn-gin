@@ -43,7 +43,9 @@ func setupRouter() *gin.Engine {
 	// gin.DisableConsoleColor()
 	// gin.ForceConsoleColor()
 	r := gin.Default()
-
+	gin.DebugPrintRouteFunc = func(httpMethod, absolutePath, handlerName string, nuHandlers int) {
+		log.Printf("endpoint %v %v %v %v\n", httpMethod, absolutePath, handlerName, nuHandlers)
+	}
 	r.Use(gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
 		// your custom format
 		return fmt.Sprintf("log:%s - [%s] \"%s %s %s %d %s \"%s\" %s\"\n",
@@ -123,6 +125,7 @@ func setupRouter() *gin.Engine {
 
 	routers.SetSyncAsyncRoute(r)
 	routers.SetValidatorsRoute(r)
+	routers.SetGroupRoute(r)
 	return r
 }
 
