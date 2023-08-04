@@ -1,0 +1,13 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+log:::1 - [Fri, 04 Aug 2023 18:30:12 CST] "GET /middleware HTTP/1.1 404 46.792µs "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" "
+[GIN] 2023/08/04 - 18:30:12 | 404 |     150.083µs |             ::1 | GET      "/middleware"
+log:::1 - [Fri, 04 Aug 2023 18:30:32 CST] "GET /long_sync HTTP/1.1 200 5.001164458s "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" "
+[GIN] 2023/08/04 - 18:30:32 | 200 |  5.002261292s |             ::1 | GET      "/long_sync"

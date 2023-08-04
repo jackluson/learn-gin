@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"learn-gin/middleware"
 	"learn-gin/routers"
 	"log"
 	"net/http"
@@ -42,6 +43,8 @@ func setupRouter() *gin.Engine {
 	// Disable Console Color
 	// gin.DisableConsoleColor()
 	// gin.ForceConsoleColor()
+	middleware.InitLog()
+
 	r := gin.Default()
 	gin.DebugPrintRouteFunc = func(httpMethod, absolutePath, handlerName string, nuHandlers int) {
 		log.Printf("endpoint %v %v %v %v\n", httpMethod, absolutePath, handlerName, nuHandlers)
