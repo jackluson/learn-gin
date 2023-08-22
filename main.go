@@ -67,17 +67,20 @@ func setupRouter() *gin.Engine {
 	r.GET("/ping", func(c *gin.Context) {
 		c.String(http.StatusOK, "pong")
 	})
+	routers.SetBindForm(r)
+	routers.SetBindUri(r)
 	routers.SetBasicAuth(r)
 	routers.SetSyncAsyncRoute(r)
 	routers.SetValidatorsRoute(r)
 	routers.SetGroupRoute(r)
-	r.GET("/:name/:id", func(c *gin.Context) {
-		var person Person
-		if err := c.ShouldBindUri(&person); err != nil {
-			c.JSON(400, gin.H{"msg": err})
-			return
+	r.GET("/someJSON", func(c *gin.Context) {
+		data := map[string]interface{}{
+			"lang": "GO语言",
+			"tag":  "<br>",
 		}
-		c.JSON(200, gin.H{"name": person.Name, "uuid": person.ID})
+
+		// will output : {"lang":"GO\u8bed\u8a00","tag":"\u003cbr\u003e"}
+		c.AsciiJSON(http.StatusOK, data)
 	})
 
 	return r
