@@ -37,6 +37,7 @@ func setupRouter() *gin.Engine {
 	routers.SetSyncAsyncRoute(r)
 	routers.SetValidatorsRoute(r)
 	routers.SetGroupRoute(r)
+	routers.SetJsonp(r)
 	r.GET("/someJSON", func(c *gin.Context) {
 		data := map[string]interface{}{
 			"lang": "GO语言",
