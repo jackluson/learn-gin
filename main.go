@@ -41,6 +41,7 @@ func setupRouter() *gin.Engine {
 	routers.SetQueryFormMap(r)
 	routers.SetBindAndValidation(r)
 	routers.SetBindQueryAny(r)
+	routers.SetParamsPath(r)
 	r.GET("/someJSON", func(c *gin.Context) {
 		data := map[string]interface{}{
 			"lang": "GO语言",

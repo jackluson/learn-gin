@@ -16,4 +16,7 @@ curl --header "Content-Type: application/json" \
   # --request POST \
   'http://localhost:8088/setbindqueryany?name=123&address=456&sex=789'
 
+curl 'http://localhost:8088/tag/jacky'
+
+
 
