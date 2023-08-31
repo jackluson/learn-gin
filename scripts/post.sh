@@ -12,11 +12,20 @@
 #   http://localhost:8088/loginJSON
 
 
+# curl --header "Content-Type: application/json" \
+#   # --request POST \
+#   'http://localhost:8088/setbindqueryany?name=123&address=456&sex=789'
+
+# curl 'http://localhost:8088/tag/jacky'
+
+
+# curl --header "Content-Type: application/x-www-form-urlencoded" \
+#   --request POST \
+#   --data 'name=tianou&message=akeji' \
+#   http://localhost:8088/query_post_form?id=23
+
+
 curl --header "Content-Type: application/json" \
-  # --request POST \
-  'http://localhost:8088/setbindqueryany?name=123&address=456&sex=789'
-
-curl 'http://localhost:8088/tag/jacky'
-
-
-
+  --request POST \
+  --data '{ "user": "manu", "password": "123" }' \
+  http://localhost:8088/query_post_form

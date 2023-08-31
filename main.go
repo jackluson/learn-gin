@@ -43,6 +43,7 @@ func setupRouter() *gin.Engine {
 	routers.SetBindQueryAny(r)
 	routers.SetParamsPath(r)
 	routers.SetPureJson(r)
+	routers.SetQueryPostForm(r)
 	return r
 }
 
