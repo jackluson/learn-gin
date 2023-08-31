@@ -44,6 +44,7 @@ func setupRouter() *gin.Engine {
 	routers.SetParamsPath(r)
 	routers.SetPureJson(r)
 	routers.SetQueryPostForm(r)
+	routers.SetRedirect(r)
 	return r
 }
 

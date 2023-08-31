@@ -25,7 +25,7 @@
 #   http://localhost:8088/query_post_form?id=23
 
 
-curl --header "Content-Type: application/json" \
-  --request POST \
-  --data '{ "user": "manu", "password": "123" }' \
-  http://localhost:8088/query_post_form
+# curl --header "Content-Type: application/json" \
+#   --request POST \
+#   --data '{ "user": "manu", "password": "123" }' \
+#   http://localhost:8088/query_post_form
