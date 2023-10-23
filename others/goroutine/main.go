@@ -8,7 +8,7 @@
  * Copyright (c) 2023 Camel Lu
  */
 
-package main
+package main_pre
 
 import (
 	"fmt"
@@ -20,17 +20,17 @@ func A(i int) {
 }
 func SyncWaitGroupWay() {
 	var wg sync.WaitGroup
-	fmt.Println("我是main")
+	fmt.Println("我是main") // 1
 	wg.Add(1)
 	// go A(1)
 	go func(i int) {
 		defer wg.Done()
-		A(i)
-		fmt.Println("after finish")
+		A(i) // 2
+		fmt.Println("after finish") // 3
 
 	}(1)
 	wg.Wait()
-	fmt.Println("执行完了")
+	fmt.Println("执行完了") // 3
 }
 
 func SyncCondWay() {
@@ -45,12 +45,13 @@ func SyncCondWay() {
 		done = true
 		cond.Signal()
 	}(1)
-	fmt.Println("start wait")
+	fmt.Println("start wait", done)
 	if !done {
 		fmt.Println("waiting")
 		cond.Wait()
 		cond.L.Unlock()
 	}
+	fmt.Println("finished wait", done)
 	fmt.Println("执行完了")
 }
 
@@ -98,3 +99,6 @@ func main() {
 	// SyncCondWay()
 	recoverDefer()
 }
+
+
+// from https://zhuanlan.zhihu.com/p/374464199
