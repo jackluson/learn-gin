@@ -1,0 +1,389 @@
+[
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "CacheManager",
+        "importPath": "beaker.cache",
+        "description": "beaker.cache",
+        "isExtraImport": true,
+        "detail": "beaker.cache",
+        "documentation": {}
+    },
+    {
+        "label": "parse_cache_config_options",
+        "importPath": "beaker.util",
+        "description": "beaker.util",
+        "isExtraImport": true,
+        "detail": "beaker.util",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "cached",
+        "importPath": "cachetools",
+        "description": "cachetools",
+        "isExtraImport": true,
+        "detail": "cachetools",
+        "documentation": {}
+    },
+    {
+        "label": "LRUCache",
+        "importPath": "cachetools",
+        "description": "cachetools",
+        "isExtraImport": true,
+        "detail": "cachetools",
+        "documentation": {}
+    },
+    {
+        "label": "TTLCache",
+        "importPath": "cachetools",
+        "description": "cachetools",
+        "isExtraImport": true,
+        "detail": "cachetools",
+        "documentation": {}
+    },
+    {
+        "label": "LFUCache",
+        "importPath": "cachetools",
+        "description": "cachetools",
+        "isExtraImport": true,
+        "detail": "cachetools",
+        "documentation": {}
+    },
+    {
+        "label": "RRCache",
+        "importPath": "cachetools",
+        "description": "cachetools",
+        "isExtraImport": true,
+        "detail": "cachetools",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "xlwt",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "xlwt",
+        "description": "xlwt",
+        "detail": "xlwt",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "get_data",
+        "kind": 2,
+        "importPath": "beaker_demo",
+        "description": "beaker_demo",
+        "peekOfCode": "def get_data(filename):\n    '''获取数据的方式'''\n    print('filename', filename)\n    with open(filename) as f:\n        return f.read()\ndef get_results():\n    '''要缓存的函数'''\n    # data = get_data(filename)\n    jsonData = {\n        'name': 'lxm',",
+        "detail": "beaker_demo",
+        "documentation": {}
+    },
+    {
+        "label": "get_results",
+        "kind": 2,
+        "importPath": "beaker_demo",
+        "description": "beaker_demo",
+        "peekOfCode": "def get_results():\n    '''要缓存的函数'''\n    # data = get_data(filename)\n    jsonData = {\n        'name': 'lxm',\n        'age': 3\n    }\n    return jsonData\ndef read_dataframe():\n    # list of strings",
+        "detail": "beaker_demo",
+        "documentation": {}
+    },
+    {
+        "label": "read_dataframe",
+        "kind": 2,
+        "importPath": "beaker_demo",
+        "description": "beaker_demo",
+        "peekOfCode": "def read_dataframe():\n    # list of strings\n    lst = ['Geeks', 'For', 'Geeks', 'is', \n                'portal', 'for', 'Geeks']\n    # Calling DataFrame constructor on list\n    df = pd.DataFrame(lst)\n    print(df)\n    return df\ndef use_api():\n    # 2. 通过编程API使用缓存",
+        "detail": "beaker_demo",
+        "documentation": {}
+    },
+    {
+        "label": "use_api",
+        "kind": 2,
+        "importPath": "beaker_demo",
+        "description": "beaker_demo",
+        "peekOfCode": "def use_api():\n    # 2. 通过编程API使用缓存\n    temp_cache = cache.get_cache('temp', type='file', expire=10)  # 实例化一个缓存，命名空间为temp，使用文件缓存，过期时间为10s\n    # 3. 创建&读取缓存\n    jsonKey = 'jsont'\n    results = temp_cache.get(key=jsonKey, createfunc=get_results)\n    print('results', results)\n    df_key = 'df_key'\n    df = temp_cache.get(key=df_key, createfunc=read_dataframe)\n    print('df', df)",
+        "detail": "beaker_demo",
+        "documentation": {}
+    },
+    {
+        "label": "get_results_with_decorate",
+        "kind": 2,
+        "importPath": "beaker_demo",
+        "description": "beaker_demo",
+        "peekOfCode": "def get_results_with_decorate():\n    '''要缓存的函数'''\n    # data = get_data(filename)\n    jsonData = {\n        'name': 'lxm',\n        'age': 3\n    }\n    print('here')\n    return jsonData\n@cache.cache('read_dataframe_with_decorate', type='file', expire=10)",
+        "detail": "beaker_demo",
+        "documentation": {}
+    },
+    {
+        "label": "read_dataframe_with_decorate",
+        "kind": 2,
+        "importPath": "beaker_demo",
+        "description": "beaker_demo",
+        "peekOfCode": "def read_dataframe_with_decorate():\n    # list of strings\n    lst = ['Geeks', 'For', 'Geeks', 'is', \n                'portal', 'for', 'Geeks']\n    # Calling DataFrame constructor on list\n    df = pd.DataFrame(lst)\n    print('dataframe here')\n    return df\ndef use_decorate():\n    dict_data = get_results_with_decorate()",
+        "detail": "beaker_demo",
+        "documentation": {}
+    },
+    {
+        "label": "use_decorate",
+        "kind": 2,
+        "importPath": "beaker_demo",
+        "description": "beaker_demo",
+        "peekOfCode": "def use_decorate():\n    dict_data = get_results_with_decorate()\n    print(\"dict_data\", dict_data)\n    dict_data = get_results_with_decorate()\n    print(\"dict_data\", dict_data)\n    df = read_dataframe_with_decorate()\n    print(\"df\", df)\n    cache.invalidate(read_dataframe_with_decorate, 'read_dataframe_with_decorate', type='file')\n    df = read_dataframe_with_decorate()\n    print(\"df\", df)",
+        "detail": "beaker_demo",
+        "documentation": {}
+    },
+    {
+        "label": "cache_opts",
+        "kind": 5,
+        "importPath": "beaker_demo",
+        "description": "beaker_demo",
+        "peekOfCode": "cache_opts = {\n    'cache.type': 'file',\n    'cache.data_dir': './tmp/cache/data',\n    'cache.lock_dir': './tmp/cache/lock'\n}\ncache = CacheManager(**parse_cache_config_options(cache_opts))\ndef get_data(filename):\n    '''获取数据的方式'''\n    print('filename', filename)\n    with open(filename) as f:",
+        "detail": "beaker_demo",
+        "documentation": {}
+    },
+    {
+        "label": "cache",
+        "kind": 5,
+        "importPath": "beaker_demo",
+        "description": "beaker_demo",
+        "peekOfCode": "cache = CacheManager(**parse_cache_config_options(cache_opts))\ndef get_data(filename):\n    '''获取数据的方式'''\n    print('filename', filename)\n    with open(filename) as f:\n        return f.read()\ndef get_results():\n    '''要缓存的函数'''\n    # data = get_data(filename)\n    jsonData = {",
+        "detail": "beaker_demo",
+        "documentation": {}
+    },
+    {
+        "label": "compare_cache",
+        "kind": 2,
+        "importPath": "cached",
+        "description": "cached",
+        "peekOfCode": "def compare_cache():\n  # without cached\n  def fib(n):\n      return n if n < 2 else fib(n - 1) + fib(n - 2)\n  s = time.time()\n  print(fib(36))\n  print(\"Time Taken:\", time.time() - s)\n  # Now using cached\n  s = time.time()\n  # Use this decorator to enable caching",
+        "detail": "cached",
+        "documentation": {}
+    },
+    {
+        "label": "use_lru",
+        "kind": 2,
+        "importPath": "cached",
+        "description": "cached",
+        "peekOfCode": "def use_lru():\n  @cached(cache=LRUCache(maxsize=3))\n  def my_fun(n):\n      # This delay resembles some task\n      s = time.time()\n      time.sleep(n)\n      print(\"\\nTime Taken: \", time.time() - s)\n      return f\"I am executed: {n}\"\n  # Takes 3 seconds\n  print(my_fun(3))",
+        "detail": "cached",
+        "documentation": {}
+    },
+    {
+        "label": "use_ttl",
+        "kind": 2,
+        "importPath": "cached",
+        "description": "cached",
+        "peekOfCode": "def use_ttl():\n  # Here recent 32 functions\n  # will we stored for 1 minutes\n  @cached(cache=TTLCache(maxsize=32, ttl=25))\n  def my_fun(n):\n      # This delay resembles some task\n      s = time.time()\n      time.sleep(n)\n      print(\"\\nTime Taken: \", time.time() - s)\n      return f\"I am executed: {n}\"",
+        "detail": "cached",
+        "documentation": {}
+    },
+    {
+        "label": "use_lock",
+        "kind": 2,
+        "importPath": "cached",
+        "description": "cached",
+        "peekOfCode": "def use_lock():\n  custom_lock = threading.Lock()\n  @cached(cache=TTLCache(maxsize=10, ttl=10), lock=custom_lock)\n  def slow_calculation(n):\n      print(f\"Performing slow calculation for {n}...\")\n      start_time = time.time()\n      nn = n\n      i = 0\n      while i < 1000:\n          time.sleep(0.01)",
+        "detail": "cached",
+        "documentation": {}
+    },
+    {
+        "label": "use_lfu",
+        "kind": 2,
+        "importPath": "cached",
+        "description": "cached",
+        "peekOfCode": "def use_lfu():\n  @cached(cache=LFUCache(maxsize=3))\n  def my_fun(n):\n      # This delay resembles some task\n      s = time.time()\n      time.sleep(n)\n      print(\"\\nTime Taken: \", time.time() - s)\n      return f\"I am executed: {n}\"\n  print(my_fun(3))\n  print(my_fun(3))",
+        "detail": "cached",
+        "documentation": {}
+    },
+    {
+        "label": "use_rr",
+        "kind": 2,
+        "importPath": "cached",
+        "description": "cached",
+        "peekOfCode": "def use_rr():\n  @cached(cache=RRCache(maxsize=3))\n  def my_fun(n):\n      # This delay resembles some task\n      s = time.time()\n      time.sleep(n)\n      print(\"\\nTime Taken: \", time.time() - s)\n      return f\"I am executed: {n}\"\n  print(my_fun(3))\n  print(my_fun(3))",
+        "detail": "cached",
+        "documentation": {}
+    },
+    {
+        "label": "ths_headers_with_cookie",
+        "kind": 2,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "def ths_headers_with_cookie():\n    return {\n        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',\n        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,pt;q=0.7,zh-TW;q=0.6',\n        'Cache-Control': 'max-age=0',\n        'Connection': 'keep-alive',\n        'Cookie': '__bid_n=183ba96fe42c3f82e44207; FEID=v10-1eebcea39886b8db33b2c67e20c985693c313e66; __xaf_fpstarttimer__=1672040247475; __xaf_thstime__=1672040247660; __xaf_fptokentimer__=1672040247764; searchGuide=sg; BAIDU_SSP_lcr=https://www.baidu.com/link?url=gy66fehjqf5E1TBjyUnMBP2MMJppbmUSPaDUhWMZ1Dh6M6gp-cPYH0NOVreHsaoC&wd=&eqid=e0d48456001656090000000263c38a62; FPTOKEN=SPfEU6LsmHtpSpi70KZ+SxQ3iSu56rZaQ7L4IpnQIdJVHiR10n+JX3m5d7tY8AzpGAVly+9VdEUfhjKKsnJgfBYFm49D039+LW6Lwz5VxZ1YIo43t8MglD/78ugDQwA0yyqbhvPGXn9e8krZXIY8SDvFh0Gz/9Idldo9M1ZHsr/3Ndt2clDOHANZVqNSZWr2KoyNCBFfFnmBkppl276OwMmt4CflKpKJYHLmRUJ9k4CzG8ivw/WApHQ8etvR7bd/NvP1lQzicqCqrcBQRUHMI1CMxUQfDVmyGyji+n4XVq6W6OIb8FzOe+w/hOp+87WC3PBvrKOeTvrPjlE39vvhHOCEpgv77IoWOgHBVdLggzPzjzXo7ITC3lowX+OaokGWuPMZQ/CXHub6Wbw+NYOgzA==|04kWDFOnxrfrTIBhx17eFzAOZpOyERqM48ui8RT41G4=|10|c3c72fe21fd5b6b9a924acd67067e276; __utma=156575163.1422871151.1663752822.1663752822.1673759342.2; __utmc=156575163; __utmz=156575163.1673759342.2.2.utmcsr=baidu|utmccn=(organic)|utmcmd=organic; Hm_lvt_78c58f01938e4d85eaf619eae71b4ed1=1672712372,1673338870; Hm_lpvt_78c58f01938e4d85eaf619eae71b4ed1=1675160025; v=A8uZVqyDLGSLxHCw722O675vXGSwYN_iWXSjlj3Ip4phXOUaxTBvMmlEM-dO',\n        'Upgrade-Insecure-Requests': '1',\n        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'\n    }",
+        "detail": "holder",
+        "documentation": {}
+    },
+    {
+        "label": "get_ths_html_content",
+        "kind": 2,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "def get_ths_html_content(page, market, code):\n    if market.upper() == 'SZ':\n        market = '32'\n    else:\n        market = '16'\n    if page == 'index':\n        url = ths_index_url % (market, code)\n    else:\n        url = ths_detail_url % (market, code)\n    # 重试3次",
+        "detail": "holder",
+        "documentation": {}
+    },
+    {
+        "label": "to_number",
+        "kind": 2,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "def to_number(s):\n    try:\n        n = float(s)\n        return n\n    except ValueError:\n        pass\n    return s\n# 解析同花顺十大持有人信息\ndef get_ths_holder_info(market, code):\n    html = get_ths_html_content('detail', market, code)",
+        "detail": "holder",
+        "documentation": {}
+    },
+    {
+        "label": "get_ths_holder_info",
+        "kind": 2,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "def get_ths_holder_info(market, code):\n    html = get_ths_html_content('detail', market, code)\n    # print(html)\n    soup = BeautifulSoup(html, \"html.parser\")\n    if not soup.select('div.m_tab_content2.clearfix'):\n        return 0\n    t_date = soup.select('div.m_tab_content2.clearfix')[0].get('id')[2:]\n    # 上期数据\n    last_dict = {}\n    if len(soup.select('div.m_tab_content2.clearfix')) > 1:",
+        "detail": "holder",
+        "documentation": {}
+    },
+    {
+        "label": "get_list_data",
+        "kind": 2,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "def get_list_data():\n    response = requests.get(url=list_url, headers=jsl_headers, data={})\n    response.encoding = 'utf-8'\n    return json.loads(response.text)\n# 解析可转债数据\ndef parse_cb_data(data):\n    cb_result = []\n    result_list = data['data']\n    for result in result_list:\n        # 排除可交换债",
+        "detail": "holder",
+        "documentation": {}
+    },
+    {
+        "label": "parse_cb_data",
+        "kind": 2,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "def parse_cb_data(data):\n    cb_result = []\n    result_list = data['data']\n    for result in result_list:\n        # 排除可交换债\n        if result['btype'] == 'E':\n            continue\n        # 排除待上市\n        if result['price_tips'] == '待上市':\n            continue",
+        "detail": "holder",
+        "documentation": {}
+    },
+    {
+        "label": "write_excel",
+        "kind": 2,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "def write_excel(path):\n    list_data = get_list_data()\n    # print(\"list_data\", list_data)\n    workbook = xlwt.Workbook(encoding='utf8')\n    cb_sheet = workbook.add_sheet('可转债详情')\n    title = ['转债代码', '转债名称', '持有人名称', '持有人标识', '是否牛散', '持有数量(万张)', '是否新增',\n             '持有变化(万张)', '持有比例%', '更新日期']\n    for i in range(0, len(title)):\n        cb_sheet.write(0, i, title[i])\n    row = 1",
+        "detail": "holder",
+        "documentation": {}
+    },
+    {
+        "label": "niusan",
+        "kind": 5,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "niusan = {'钟宝申': '牛散', '郑志坤': '牛散', '郑淑芬': '牛散', '张鹏': '牛散', '莫浩礼': '牛散', '黄永山': '牛散',\n          '何燕': '牛散', '高建华': '牛散', '冯民': '牛散', '冯玲': '牛散', '翟建琴': '牛散', '丁碧霞': '牛散',\n          '李怡名': '牛散', '陈晓红': '牛散', '曹卫宏': '牛散', '蔡子跃': '牛散', '蔡晓东': '牛散', '梁小红': '牛散',\n          '李志鹤': '牛散', '黄巍然': '摊大饼', '陈娟': '摊大饼',\n          '林园': '私募', '睿郡': '私募', '盘京': '私募', '宁泉': '私募', '明汯': '私募', '兴聚': '私募',\n          '通怡': '私募', '安鑫': '私募', '纽达': '私募', '平石': '私募', '盖德尔': '私募', '迎水': '私募',\n          '九坤': '私募', '旌安': '私募', '君信和': '私募', '展弘': '私募', '久期': '私募', '合晟': '私募',\n          '高熵': '私募'}\n# 集思录列表数据\nlist_url = 'https://www.jisilu.cn/webapi/cb/list/'",
+        "detail": "holder",
+        "documentation": {}
+    },
+    {
+        "label": "list_url",
+        "kind": 5,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "list_url = 'https://www.jisilu.cn/webapi/cb/list/'\n# 需填入集思录登录cookie 可以在浏览器中获取\njsl_headers = {\n    'Accept': 'application/json, text/plain, */*',\n    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,pt;q=0.7,zh-TW;q=0.6',\n    'Columns': '1,70,2,3,5,6,11,12,14,15,16,29,30,32,34,35,75,44,46,47,52,53,54,56,57,58,59,60,62,63,67',\n    'Connection': 'keep-alive',\n    'Cookie': '',\n    'If-Modified-Since': 'Wed, 29 Jun 2022 10:13:04 GMT',\n    'Init': '1',",
+        "detail": "holder",
+        "documentation": {}
+    },
+    {
+        "label": "jsl_headers",
+        "kind": 5,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "jsl_headers = {\n    'Accept': 'application/json, text/plain, */*',\n    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,pt;q=0.7,zh-TW;q=0.6',\n    'Columns': '1,70,2,3,5,6,11,12,14,15,16,29,30,32,34,35,75,44,46,47,52,53,54,56,57,58,59,60,62,63,67',\n    'Connection': 'keep-alive',\n    'Cookie': '',\n    'If-Modified-Since': 'Wed, 29 Jun 2022 10:13:04 GMT',\n    'Init': '1',\n    'Referer': 'https://www.jisilu.cn/web/data/cb/list',\n    'Sec-Fetch-Dest': 'empty',",
+        "detail": "holder",
+        "documentation": {}
+    },
+    {
+        "label": "ths_index_url",
+        "kind": 5,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "ths_index_url = \"http://basic.10jqka.com.cn/%s/%s/index.html\"\n# 同花顺f10债券详细\nths_detail_url = \"http://basic.10jqka.com.cn/%s/%s/detail.html\"\nths_headers = {\n    'Host': 'basic.10jqka.com.cn',\n    'Upgrade-Insecure-Requests': '1',\n    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',\n    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)',\n    'Accept-Language': 'zh-cn'\n}",
+        "detail": "holder",
+        "documentation": {}
+    },
+    {
+        "label": "ths_detail_url",
+        "kind": 5,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "ths_detail_url = \"http://basic.10jqka.com.cn/%s/%s/detail.html\"\nths_headers = {\n    'Host': 'basic.10jqka.com.cn',\n    'Upgrade-Insecure-Requests': '1',\n    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',\n    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)',\n    'Accept-Language': 'zh-cn'\n}\ndef ths_headers_with_cookie():\n    return {",
+        "detail": "holder",
+        "documentation": {}
+    },
+    {
+        "label": "ths_headers",
+        "kind": 5,
+        "importPath": "holder",
+        "description": "holder",
+        "peekOfCode": "ths_headers = {\n    'Host': 'basic.10jqka.com.cn',\n    'Upgrade-Insecure-Requests': '1',\n    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',\n    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)',\n    'Accept-Language': 'zh-cn'\n}\ndef ths_headers_with_cookie():\n    return {\n        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',",
+        "detail": "holder",
+        "documentation": {}
+    }
+]

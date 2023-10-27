@@ -1,24 +1,23 @@
 package main
 
-
 import (
 	"fmt"
 	"time"
 )
 
 func goroutineA(a <-chan int) {
-	val := <- a
+	val := <-a
 	fmt.Println("G1 received data: ", val)
 	return
 }
 
 func goroutineB(b <-chan int) {
-	val := <- b
+	val := <-b
 	fmt.Println("G2 received data: ", val)
 	return
 }
 
-func main() {
+func main_chan() {
 	// ch := make(chan int)
 	// go goroutineA(ch)
 	// go goroutineB(ch)
@@ -29,14 +28,14 @@ func main() {
 }
 
 func test_without_buffer() {
-     var ch = make(chan string)
+	var ch = make(chan string)
 
-     for i := 0; i < 10; i++ {
-             go sum(i, i+10, ch)
-     }
-		 for i := 0; i < 10; i++ {
-					fmt.Print(<-ch)
-		}
+	for i := 0; i < 10; i++ {
+		go sum(i, i+10, ch)
+	}
+	for i := 0; i < 10; i++ {
+		fmt.Print(<-ch)
+	}
 
 }
 
@@ -69,9 +68,9 @@ func test_buffer_chan() {
 }
 
 func sum(start, end int, ch chan string) {
-     var sum int = 0
-     for i := start; i < end; i++ {
-             sum += i
-     }
-     ch <- fmt.Sprintf("Sum from %d to %d is %d\n", start, end, sum)
+	var sum int = 0
+	for i := start; i < end; i++ {
+		sum += i
+	}
+	ch <- fmt.Sprintf("Sum from %d to %d is %d\n", start, end, sum)
 }

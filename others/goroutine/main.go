@@ -8,7 +8,7 @@
  * Copyright (c) 2023 Camel Lu
  */
 
-package main_pre
+package main
 
 import (
 	"fmt"
@@ -25,7 +25,7 @@ func SyncWaitGroupWay() {
 	// go A(1)
 	go func(i int) {
 		defer wg.Done()
-		A(i) // 2
+		A(i)                        // 2
 		fmt.Println("after finish") // 3
 
 	}(1)
@@ -94,11 +94,10 @@ func recoverDefer() {
 	fmt.Println("执行完了")
 }
 
-func main() {
+func main_pre() {
 	// SyncWaitGroupWay()
 	// SyncCondWay()
 	recoverDefer()
 }
-
 
 // from https://zhuanlan.zhihu.com/p/374464199
